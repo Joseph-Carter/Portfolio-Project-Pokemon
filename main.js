@@ -5,7 +5,7 @@ const pokemonListPage = "https://pokeapi.co/api/v2/pokemon?limit=10"
 fetch(pokemonListPage)
     .then(data => data.json())
     .then(data => {
-        const pokemonList = document.getElementById('pokemon-list');
+        const pokemonContainer = document.querySelector('.pokemon-container');
         const pokemonArray = data.results
 
         pokemonArray.forEach(pokemon => {
@@ -30,7 +30,7 @@ fetch(pokemonListPage)
                     pokemonCard.appendChild(imageElement)
                     pokemonCard.appendChild(pokemonNameElement);
 
-                    pokemonList.appendChild(pokemonCard)
+                    pokemonContainer.appendChild(pokemonCard)
 
                 })
                 .catch(error => {
