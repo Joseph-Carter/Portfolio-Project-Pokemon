@@ -49,16 +49,25 @@ function pokemonListing(){
 }
 pokemonListing();
 
+const searchButton = document.querySelector('button')
 const form = document.querySelector("#form");
+const input = document.querySelector("input");
+const pokemonInventory = document.querySelector('.searched-pokemon')
 
-form.addEventListener("click", (event) => {
-  event.preventDefault();
-
+searchButton.addEventListener("submit", (event) => {
+    event.preventDefault();
     const id = input.value;
     fetch(`${url}/${id}`)
-    .then(data => data.json())
-    .then(json => {
-        showpokemon(json)
-    })
-    .catch(error => showError(error))
+        .then(data => data.json())
+        .then(json => {
+            showPokemon(json)
+            fetch(`${url}?limit=10&offset=${json.id}`)
+                .then(data => data.json())
+                .then(data => {
+                    const pokemonContainer = document.querySelector(".pokemon-container");
+                    const pokemonArray = data.results;
+                })
+        })
+        .catch(err => showError(err))
 });
+
