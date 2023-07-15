@@ -42,3 +42,19 @@ body {
     line-height: 1.5;
     margin-bottom: 15px;
   }
+  #home > a {
+    margin: 0 10px;
+    display: flex;
+    color: rgb(14, 51, 218);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    cursor: pointer;
+    height: 50px;
+    transition: all .5s ease;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+   }
