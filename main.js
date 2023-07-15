@@ -3,7 +3,6 @@ const pokemonListPage = "https://pokeapi.co/api/v2/pokemon?limit=10";
 const pokemonContainer = document.querySelector(".pokemon-container");
 const searchedPokemon = document.querySelector('.searched-pokemon');
 
-// Function to fetch and display Pokémon cards
 function fetchPokemonCards(pokemonUrl) {
   fetch(pokemonUrl)
     .then((data) => data.json())
@@ -30,7 +29,6 @@ function fetchPokemonCards(pokemonUrl) {
     });
 }
 
-// Function to display the searched Pokémon
 function showSearchedPokemon(json) {
   const pokemonCard = document.createElement("div");
   pokemonCard.classList.add("pokemon-card");
@@ -47,14 +45,11 @@ function showSearchedPokemon(json) {
   pokemonCard.appendChild(imageElement);
   pokemonCard.appendChild(pokemonNameElement);
 
-  // Clear existing Pokémon cards
   pokemonContainer.innerHTML = "";
 
-  // Append the searched Pokémon card to the container
   pokemonContainer.appendChild(pokemonCard);
 }
 
-// Make an API request to fetch the first 10 Pokémon
 function pokemonListing() {
   fetch(pokemonListPage)
     .then((data) => data.json())
